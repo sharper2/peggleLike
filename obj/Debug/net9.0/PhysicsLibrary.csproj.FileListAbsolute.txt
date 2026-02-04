@@ -37,3 +37,4 @@ C:\Users\flyin\OneDrive\Desktop\Monogame Projects\PhysicsLibrary\PhysicsLibrary\
 C:\Users\flyin\OneDrive\Desktop\Monogame Projects\PhysicsLibrary\PhysicsLibrary\bin\Debug\net9.0\Content\images\testPeg.xnb
 C:\Users\flyin\OneDrive\Desktop\Monogame Projects\PhysicsLibrary\PhysicsLibrary\bin\Debug\net9.0\Content\images\pegTexture.xml
 C:\Users\flyin\OneDrive\Desktop\Monogame Projects\PhysicsLibrary\PhysicsLibrary\bin\Debug\net9.0\Content\images\pegTexture.xnb
+C:\Users\flyin\OneDrive\Desktop\Monogame Projects\PhysicsLibrary\PhysicsLibrary\obj\Debug\net9.0\PhysicsLibrary.sourcelink.json

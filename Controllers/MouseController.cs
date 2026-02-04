@@ -34,7 +34,7 @@ namespace PhysicsLibrary.Controllers
             if (mouse.LeftButton == ButtonState.Pressed)
             {
                 // compute multiplier
-                float launchY = 400f;
+                float launchY = 600f;
                 float yDistance = _position.Y - _anchor.Y;
                 float t = (-launchY + MathF.Sqrt(launchY * launchY + 2f * _gravity * yDistance)) / _gravity;
                 t = MathF.Max(t, 0.05f);

@@ -8,7 +8,7 @@ namespace PhysicsLibrary.Sprites
 {
     public class Ball : ISprite, IPositionable, ICircular
     {
-        private Peg _peg; // for testing will be removed
+        private Peg[] _peg; // for testing will be removed 
 
         private Texture2D _texture;
         private int _screenHeight;
@@ -20,7 +20,7 @@ namespace PhysicsLibrary.Sprites
         public Vector2 Velocity { get; set; }
         public Vector2 Acceleration { get; set; }
 
-        public Ball(Texture2D texture, Game1 game, Peg peg)
+        public Ball(Texture2D texture, Game1 game, Peg[] peg)
         {
             _texture = texture;
             _peg = peg;
@@ -34,7 +34,8 @@ namespace PhysicsLibrary.Sprites
 
         public void Update(GameTime gameTime)
         {
-            CheckCollision(_peg);
+            foreach (Peg p in _peg)
+                CheckCollision(p);
 
             float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
             Position += Velocity * dt;

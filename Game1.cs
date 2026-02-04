@@ -11,8 +11,12 @@ namespace PhysicsLibrary;
 public class Game1 : Core
 {
     private Peg _peg;
+    private Peg _peg2;
+    private Peg _peg3;
+    private Peg[] _pegs;
+
     private Ball _ball;
-    //private DrawLine _mouseLine;
+    private DrawLine _mouseLine;
     private MouseController _mouseController;
 
 // textures
@@ -23,7 +27,7 @@ public class Game1 : Core
 // positions
     private Vector2 _center;
     private Vector2 _anchor;
-    //private Vector2 _mousePos;
+    private Vector2 _mousePos;
 
     private float _screenWidth;
     private float _screenHeight;
@@ -55,7 +59,15 @@ public class Game1 : Core
         _peg = new Peg(_bluePeg, _bluePegHit);
         _peg.Position = _center;
 
-        _ball = new Ball(_ballTexture, this, _peg) ;
+        _peg2 = new Peg(_bluePeg, _bluePegHit);
+        _peg2.Position = new Vector2(_center.X + _center.X * 0.5f, _center.Y);
+
+        _peg3 = new Peg(_bluePeg, _bluePegHit);
+        _peg3.Position = new Vector2(_center.X * 0.5f, _center.Y);
+
+        _pegs = [_peg, _peg2, _peg3];
+
+        _ball = new Ball(_ballTexture, this, _pegs) ;
         _ball.Position = _center;
         _ball.Velocity = Vector2.Zero;
     }
@@ -64,9 +76,10 @@ public class Game1 : Core
     {        
         _mouseController.Update(gameTime);
         _ball.Update(gameTime);
-        _peg.Update(gameTime);
+        foreach (Peg p in _pegs)
+            p.Update(gameTime);
 
-        //_mouseLine = new DrawLine(SpriteBatch, _anchor, _mousePos, Color.White);
+        _mouseLine = new DrawLine(SpriteBatch, _anchor, _mousePos, Color.White);
 
         base.Update(gameTime);
     }
@@ -78,8 +91,9 @@ public class Game1 : Core
         SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
 
         _ball.Draw(SpriteBatch);
-        _peg.Draw(SpriteBatch);
-        //_mouseLine.Execute();
+        foreach (Peg p in _pegs)
+            p.Draw(SpriteBatch);
+        _mouseLine.Execute();
 
         SpriteBatch.End();
 
